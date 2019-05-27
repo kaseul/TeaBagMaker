@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cbList = new System.Windows.Forms.ComboBox();
             this.btnCount = new System.Windows.Forms.Button();
             this.lblCountNum = new System.Windows.Forms.Label();
             this.lblCopyRight = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // cbList
@@ -42,6 +44,7 @@
             this.cbList.Name = "cbList";
             this.cbList.Size = new System.Drawing.Size(233, 20);
             this.cbList.TabIndex = 0;
+            this.cbList.SelectedIndexChanged += new System.EventHandler(this.CbList_SelectedIndexChanged);
             // 
             // btnCount
             // 
@@ -51,6 +54,7 @@
             this.btnCount.TabIndex = 1;
             this.btnCount.Text = "담그기!";
             this.btnCount.UseVisualStyleBackColor = true;
+            this.btnCount.Click += new System.EventHandler(this.BtnCount_Click);
             // 
             // lblCountNum
             // 
@@ -58,9 +62,8 @@
             this.lblCountNum.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lblCountNum.Location = new System.Drawing.Point(13, 104);
             this.lblCountNum.Name = "lblCountNum";
-            this.lblCountNum.Size = new System.Drawing.Size(60, 21);
+            this.lblCountNum.Size = new System.Drawing.Size(0, 21);
             this.lblCountNum.TabIndex = 2;
-            this.lblCountNum.Text = "label1";
             // 
             // lblCopyRight
             // 
@@ -70,6 +73,11 @@
             this.lblCopyRight.Size = new System.Drawing.Size(230, 12);
             this.lblCopyRight.TabIndex = 3;
             this.lblCopyRight.Text = "Copyright by 3502 Kim Kaseul, 20190527";
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form1
             // 
@@ -81,9 +89,11 @@
             this.Controls.Add(this.btnCount);
             this.Controls.Add(this.cbList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "TeaBagMaker";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,6 +105,7 @@
         private System.Windows.Forms.Button btnCount;
         private System.Windows.Forms.Label lblCountNum;
         private System.Windows.Forms.Label lblCopyRight;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
